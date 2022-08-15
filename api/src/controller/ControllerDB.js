@@ -1,6 +1,6 @@
 const { Pokemon , Types } = require('../db.js')
 
-const typesDB = async (arrTypes) => {
+const CreateTypesDB = async (arrTypes) => {
   arrTypes.forEach((genre) => {
     Types.findOrCreate({
       where: { name: genre },
@@ -11,5 +11,5 @@ const typesDB = async (arrTypes) => {
 };
 
 module.exports = {
-  typesDB
+  CreateTypesDB
 }

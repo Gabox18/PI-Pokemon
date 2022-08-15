@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {typesDB} = require('./ControllerDB.js')
+const {CreateTypesDB} = require('./ControllerDB.js')
 
 const getAllPokemoms = async()=>{
     //let allPokemons = [];
@@ -60,11 +60,11 @@ const getAllPokemoms = async()=>{
 
 const getAllTypes = async () => {
   let response = await axios.get(`https://pokeapi.co/api/v2/type`);
-  let types = response.data.results.map((genre) => {
+  let typesApi = response.data.results.map((genre) => {
     return genre.name;
   });
-  const allTypes = await typesDB(types);//crea y llama los types desde la BD
-  return allTypes;
+  const typesDb = await CreateTypesDB(typesApi);//crea y llama los types desde la BD
+  return typesDb;
 };
 
 module.exports = {
