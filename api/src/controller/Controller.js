@@ -1,60 +1,34 @@
 const axios = require('axios');
 const {CreateTypesDB,searchPokeDB} = require('./ControllerDB.js')
+const URL_API_POKEMON = 'https://pokeapi.co/api/v2/pokemon?limit=5';
 
 const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
-    //let allPokemons = [];
-    //--------------------obtengo las url de los 1eros 40 pokemons-------------------
-    //let response = await axios.get('https://pokeapi.co/api/v2/pokemon');
-    //let allUrlResponse = response.data.results.map((pokemon) => pokemon.url);
-    //response = await axios.get(response.data.next)
-    //allUrlResponse = allUrlResponse.concat(response.data.results.map((pokemon) => pokemon.url))
-    //--------------------obtengo las url de los 1eros 40 pokemons-------------------
-
-    // await axios.all(allUrlResponse.map((urlPokemonSubrequest) => axios.get(urlPokemonSubrequest))).then(
-    //   (foundPokemons) => {
-    //     foundPokemons.map((foundPokemon) => allPokemons.push({
-    //       id: foundPokemon.data.id,
-    //       name: foundPokemon.data.name,
-    //       img: foundPokemon.data.sprites.other['official-artwork'].front_default,
-    //       hp: foundPokemon.data.stats[0].base_stat,
-    //       attack: foundPokemon.data.stats[1].base_stat,
-    //       defense: foundPokemon.data.stats[2].base_stat,
-    //       speed: foundPokemon.data.stats[5].base_stat,
-    //       height: foundPokemon.data.height,
-    //       weight: foundPokemon.data.weight,
-    //       types: foundPokemon.data.types.map((t) => t.type.name),
-    //     }));
-    //   },
-    // );
+  try {
+    const poke1 = await axios("https://pokeapi.co/api/v2/pokemon?offset=10&limit=10")
+    //const poke2 = await axios(poke1.data.next)
+    //const pokeData = poke1.data.results.concat(poke2.data.results)
+        const pokemon = await Promise.all(poke1.data.results.map(async poke => {
+            let pDetail = await axios(poke.url)
+            console.log(pDetail,'----pDetail------')
+              return {  
+                id: pDetail.data.id,
+                  name: pDetail.data.name,
+                  image: pDetail.data.sprites.other.home.front_default,
+                  types: pDetail.data.types.map(t => t.type.name),
+                  hp: pDetail.data.stats[0].base_stat,
+                  attack: pDetail.data.stats[1].base_stat,
+                  defense: pDetail.data.stats[2].base_stat,
+                  speed: pDetail.data.stats[5].base_stat,
+                  height: pDetail.data.height, 
+                  weight: pDetail.data.weight
+            }
+        }))
+        console.log(pokemon,'----pokemon')
+        return pokemon;
     
-    //return allUrlResponse
-
-    try {
-        const apiPokemons = [];
-        const pokemonRequest = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=25');
-        const urlPokemonSubrequest = pokemonRequest.data.results.map((pokemon) => pokemon.url);
-        // await axios.all(await urlPokemonSubrequest.map((urlPokemonSubrequest) => axios.get(urlPokemonSubrequest))).then(
-        //   (foundPokemons) => {console.log(foundPokemons);
-        //     foundPokemons.map((foundPokemon) => apiPokemons.push({
-        //       id: foundPokemon.data.id,
-        //       name: foundPokemon.data.name,
-        //       img: foundPokemon.data.sprites.other['official-artwork'].front_default,
-        //       hp: foundPokemon.data.stats[0].base_stat,
-        //       attack: foundPokemon.data.stats[1].base_stat,
-        //       defense: foundPokemon.data.stats[2].base_stat,
-        //       speed: foundPokemon.data.stats[5].base_stat,
-        //       height: foundPokemon.data.height,
-        //       weight: foundPokemon.data.weight,
-        //       createdInDb: false,
-        //       types: foundPokemon.data.types.map((t) => t.type.name),
-        //     }));
-        //   },
-        // )//.catch((foundPokemons)=>console.log(foundPokemons));
-        return urlPokemonSubrequest;
-      } catch (error) {
-        console.log(error);
-      }
-
+  } catch (error) {
+    return error
+  }
 }
 
 const getAllTypes = async ()=>{//trae y cargas los tipos en BD
@@ -106,6 +80,24 @@ const getById = async (id)=>{//busca por ID en BD y Api
     return searchPokeDB(id,null)
   }
 }
+
+
+// const objPokeApi = (poke) => {
+//   const objPokeapi =
+//   {
+//       id: poke.id,
+//       name: poke.name,
+//       life: poke.stats[0].base_stat,
+//       attack: poke.stats[1].base_stat,
+//       defense: poke.stats[2].base_stat,
+//       speed: poke.stats[5].base_stat,
+//       height: poke.height,
+//       weight: poke.weight,
+//       sprite: poke.sprites.other.dream_world.front_default,
+//       types: poke.types.length < 2 ? [{ name: poke.types[0].type.name}] : [{ name: poke.types[0].type.name}, { name: poke.types[1].type.name}]
+//   };
+//   return objPokeapi
+// };
 
 module.exports = {
     getAllPokemoms,
