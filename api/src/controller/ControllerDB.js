@@ -66,8 +66,31 @@ const searchPokeDB = async (id , name) =>{//busca pokemons en BD por id o nombre
   }
 };
 
+const getAllPokeDB = async ()=>{//trae todos los pokemon de la BD
+  let pokeDB = await Pokemon.findAll({
+    include:{
+        model: Types,
+        attributes:['name'],
+        through: {
+            attributes: []
+        }
+    }
+})
+
+let gameDbFormat = pokeDB.map(e =>{
+    return {
+      id: e.id,
+      name: e.name,
+      background_image: e.background_image,
+      types: e.types,
+    }
+})
+return gameDbFormat
+}
+
 module.exports = {
   CreateTypesDB,
   createPokemonDB,
-  searchPokeDB
+  searchPokeDB,
+  getAllPokeDB
 }
