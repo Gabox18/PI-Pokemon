@@ -5,7 +5,7 @@ const {CreateTypesDB,searchPokeDB,getAllPokeDB} = require('./ControllerDB.js')
 
 const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
   try {
-    let pokemonApi=[],pokemonDB=[],AllPokemon =[]
+    let pokemonApi=[],pokemonDB=[],AllPokemon=[]
     for (let i = 0; i<=3; i++) {//for para que resuelva de 10 en 10 promesas
       const response = await axios(`https://pokeapi.co/api/v2/pokemon?offset=${i}0&limit=10`)
       let poke = await axios.all(response.data.results.map(async poke => {
@@ -21,7 +21,7 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
     }//--fin del for
     pokemonDB = await getAllPokeDB()
     AllPokemon = [...pokemonDB,...pokemonApi]
-    return pokemonApi;
+    return AllPokemon;
     //return [...pokemonDB,...data]
   } catch (error) {
     return error
