@@ -1,29 +1,28 @@
 const axios = require('axios');
 const {CreateTypesDB,searchPokeDB,getAllPokeDB} = require('./ControllerDB.js')
 //const URL_API_POKEMON = 'https://pokeapi.co/api/v2/pokemon?limit=40';
-const {data} = require('../../data.js')
+//const {data} = require('../../data.js')
 
 const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
   try {
-    // let pokemonApi,pokemonDB,AllPokemon =[]
-    // for (let i = 0; i<=3; i++) {//for para que resuelva de 10 en 10 promesas
-    //   const response = await axios(`https://pokeapi.co/api/v2/pokemon?offset=${i}0&limit=10`)
-    //   let poke = await axios.all(response.data.results.map(async poke => {
-    //     let pokeDetail = await axios(poke.url)
-    //       return {  
-    //         id: pokeDetail.data.id,
-    //         name: pokeDetail.data.name,
-    //         background_image: pokeDetail.data.sprites.other.dream_world.front_default,
-    //         types: pokeDetail.data.types.map(t => {return {name: t.type.name}}),
-    //       }
-    //   }))
-    //   pokemonApi = [...pokemonApi,...poke]
-    // }//--fin del for
-     pokemonDB = await getAllPokeDB()
-    // AllPokemon = [...pokemonDB,...pokemonApi]
-    //return AllPokemon;
-
-    return [...pokemonDB,...data]
+    let pokemonApi=[],pokemonDB=[],AllPokemon =[]
+    for (let i = 0; i<=3; i++) {//for para que resuelva de 10 en 10 promesas
+      const response = await axios(`https://pokeapi.co/api/v2/pokemon?offset=${i}0&limit=10`)
+      let poke = await axios.all(response.data.results.map(async poke => {
+        let pokeDetail = await axios(poke.url)
+          return {  
+            id: pokeDetail.data.id,
+            name: pokeDetail.data.name,
+            background_image: pokeDetail.data.sprites.other.dream_world.front_default,
+            types: pokeDetail.data.types.map(t => {return {name: t.type.name}}),
+          }
+      }))
+      pokemonApi = [...pokemonApi,...poke]
+    }//--fin del for
+    pokemonDB = await getAllPokeDB()
+    AllPokemon = [...pokemonDB,...pokemonApi]
+    return pokemonApi;
+    //return [...pokemonDB,...data]
   } catch (error) {
     return error
   }
