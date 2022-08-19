@@ -2,6 +2,9 @@ import axios from "axios";
 
 export const GET_ALL_POKES = 'GET_ALL_POKES'
 export const GET_TYPES = 'GET_TYPES'
+export const FILTER_TYPES = 'FILTER_TYPES'
+export const FILTER_DB = 'FILTER_DB'
+export const ORDER_POKES_BY = 'ORDER_POKES_BY'
 
 export const getAllPokes = () => {
     return async function (dispatch) {
@@ -21,5 +24,26 @@ export const getAllPokes = () => {
           type: GET_TYPES,
           payload: response.data
         })
+    }
+  }
+
+  export const filterTypes = (type) =>{
+    return{
+      type: FILTER_TYPES,
+      payload : type
+    }
+  }
+  
+  export const filterDb = (pokeDB) =>{
+    return{
+      type: FILTER_DB,
+      payload : pokeDB
+    }
+  }
+
+  export const orderPokesBy = (typeOrder) =>{
+    return{
+      type : ORDER_POKES_BY,
+      payload : typeOrder
     }
   }

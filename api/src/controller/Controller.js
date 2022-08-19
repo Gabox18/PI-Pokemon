@@ -14,15 +14,16 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
             id: pokeDetail.data.id,
             name: pokeDetail.data.name,
             background_image: pokeDetail.data.sprites.other.dream_world.front_default,
-            types: pokeDetail.data.types.map(t => {return {name: t.type.name}}),
+            types: pokeDetail.data.types.map(t => t.type.name),
+            attack: pokeDetail.data.stats[1].base_stat,
           }
       }))
       pokemonApi = [...pokemonApi,...poke]
     }//--fin del for
-    pokemonDB = await getAllPokeDB()
+     pokemonDB = await getAllPokeDB()
     AllPokemon = [...pokemonDB,...pokemonApi]
     return AllPokemon;
-    //return [...pokemonDB,...data]
+     //return [...pokemonDB,...data]
   } catch (error) {
     return error
   }
@@ -34,7 +35,8 @@ const getAllTypes = async ()=>{//trae y cargas los tipos en BD
     return genre.name;
     });
   const typesDb = await CreateTypesDB(typesApi);//crea y llama los types desde la BD
-  return typesDb;
+  return typesDb; 
+  //return await CreateTypesDB()
 };
 
 const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux"
-import { getAllPokes } from "../../Redux/actions";
+import { getAllPokes,getTypes } from "../../Redux/actions";
 import {Link} from 'react-router-dom'
 import imgLanding from '../../Img/pokemon.png'
 
@@ -10,6 +10,7 @@ function LandingPage (props){
 
     useEffect(()=>{
         dispatch(getAllPokes())
+        dispatch(getTypes())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
@@ -17,7 +18,7 @@ function LandingPage (props){
         <dir>
             <h1>Henry Pokemon</h1>
             <img src={imgLanding} alt="fondo" width='650px'/><br />
-            <Link to={'/home'}><button>Start Game</button></Link>
+            <Link to={'/home'}><button>Go To Pokemons</button></Link>
         </dir>
     )
 }

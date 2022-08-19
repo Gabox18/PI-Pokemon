@@ -6,7 +6,7 @@ const CreateTypesDB = async (arrTypes) => {//crea los tipos en BD
       where: { name: genre },
     });
   });
-  let alltypes = await Types.findAll()
+   let alltypes = await Types.findAll()
   return alltypes.map(e=>e.name)//.toString().trim().split(',')
 };
 
@@ -77,15 +77,17 @@ const getAllPokeDB = async ()=>{//trae todos los pokemon de la BD
     }
 })
 
-let gameDbFormat = pokeDB.map(e =>{
+let pokeDbFormat = pokeDB.map(e =>{
     return {
       id: e.id,
       name: e.name,
       background_image: e.background_image,
-      types: e.types,
+      types: e.types.map(t=>t.name),
+      createdInDb: e.createdInDb,
+      attack: e.attack
     }
 })
-return gameDbFormat
+return pokeDbFormat
 }
 
 module.exports = {
