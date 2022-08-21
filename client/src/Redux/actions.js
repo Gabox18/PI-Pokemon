@@ -5,6 +5,8 @@ export const GET_TYPES = 'GET_TYPES'
 export const FILTER_TYPES = 'FILTER_TYPES'
 export const FILTER_DB = 'FILTER_DB'
 export const ORDER_POKES_BY = 'ORDER_POKES_BY'
+export const CREATE_POKE = 'CREATE_POKE'
+
 
 export const getAllPokes = () => {
     return async function (dispatch) {
@@ -22,6 +24,16 @@ export const getAllPokes = () => {
         let response = await axios.get(`http://localhost:3001/types`)
         return dispatch({
           type: GET_TYPES,
+          payload: response.data
+        })
+    }
+  }
+
+  export const createPoke = (objPoke) => {
+    return async function(dispatch){
+        let response = await axios.post(`http://localhost:3001/pokemons`,objPoke)
+        return dispatch({
+          type: CREATE_POKE,
           payload: response.data
         })
     }

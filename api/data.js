@@ -378,4 +378,27 @@ const data = [
   }
 ]
 
-  module.exports = {data}
+const dataType = [
+  "flying",
+  "normal",
+  "rock",
+  "bug",
+  "water",
+  "electric",
+  "dark",
+  "unknown",
+  "poison",
+  "fire",
+  "shadow",
+  "ice",
+  "fighting",
+  "ghost",
+  "psychic",
+  "fairy",
+  "ground",
+  "steel",
+  "grass",
+  "dragon"
+]
+
+  module.exports = {data,dataType}

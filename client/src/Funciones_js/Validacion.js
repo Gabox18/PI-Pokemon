@@ -4,14 +4,23 @@ export default function validate(input) {
     if (!input.name) error.name = "Nombre requerido"
     else if(input.name.length<5) error.name = "Nombre mayor de 5 caracteres"
     
-    if(!input.description) error.description = "Descripcion requerida"
-    else if(input.description.length<20) error.description = "Minimo 20 caracteres"
+    if(input.hp<0 || input.hp>100) error.hp = "Vida entre 0 y 100"
 
-    if(input.rating<0 || input.rating>5) error.rating = "puntaje entre 0 y 5"
+    if(input.attack<0 || input.attack>100) error.attack = "Ataque entre 0 y 100"
 
-    if(!input.platform.length) error.platform = "selecciona 1 o mas plataformas"
+    if(input.attack<0 || input.attack>100) error.attack = "Ataque entre 0 y 100"
 
-    if(!input.gender.length) error.gender = "selecciona 1 o mas Generos"
+    if(input.defense<0 || input.defense>100) error.defense = "Defensa entre 0 y 100"
+
+    if(input.speed<0 || input.speed>100) error.speed = "Velocidad entre 0 y 100"
+
+    if(input.height<0 || input.height>100) error.height = "Altura entre 0 y 100"
+
+    if(input.weight<0 || input.weight>100) error.weight = "Peso entre 0 y 100"
+
+    if(!input.types.length) error.types = "selecciona 1 o mas Tipos"
 
     return error
   };
+
+  // background_image:""
