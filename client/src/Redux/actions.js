@@ -6,6 +6,8 @@ export const FILTER_TYPES = 'FILTER_TYPES'
 export const FILTER_DB = 'FILTER_DB'
 export const ORDER_POKES_BY = 'ORDER_POKES_BY'
 export const CREATE_POKE = 'CREATE_POKE'
+export const POKE_DETAILS = 'POKE_DETAILS'
+export const CLEAR_DETAILS = 'CLEAR_DETAILS'
 
 
 export const getAllPokes = () => {
@@ -26,6 +28,22 @@ export const getAllPokes = () => {
           type: GET_TYPES,
           payload: response.data
         })
+    }
+  }
+
+  export const getDetailsPoke = (id)=>{
+    return async function(dispatch){
+      let response = await axios.get(`http://localhost:3001/pokemons/${id}`)
+      return dispatch({
+        type : POKE_DETAILS,
+        payload : response.data
+      })
+    }
+  }
+
+  export const clearDetails = ()=>{
+    return{
+      type:CLEAR_DETAILS
     }
   }
 

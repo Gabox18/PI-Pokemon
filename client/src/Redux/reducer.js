@@ -1,4 +1,5 @@
-import {GET_ALL_POKES, GET_TYPES,FILTER_TYPES,FILTER_DB,ORDER_POKES_BY,CREATE_POKE} from './actions.js'
+import {GET_ALL_POKES, GET_TYPES,FILTER_TYPES,FILTER_DB,ORDER_POKES_BY
+  ,CREATE_POKE,POKE_DETAILS,CLEAR_DETAILS} from './actions.js'
 import ordering from '../Funciones_js/Ordenamiento.js'
 
 const initialState = {
@@ -24,6 +25,18 @@ const initialState = {
         return{
           ...state,
           AllTypes: action.payload
+        }
+
+      case POKE_DETAILS:
+        return{
+          ...state,
+          pokeDetail : action.payload
+        }
+
+      case CLEAR_DETAILS:
+        return{
+          ...state,
+          pokeDetail : {}
         }
 
       case FILTER_TYPES:
