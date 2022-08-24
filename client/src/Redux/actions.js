@@ -8,6 +8,7 @@ export const ORDER_POKES_BY = 'ORDER_POKES_BY'
 export const CREATE_POKE = 'CREATE_POKE'
 export const POKE_DETAILS = 'POKE_DETAILS'
 export const CLEAR_DETAILS = 'CLEAR_DETAILS'
+export const SEARCH_BY_NAME ='SEARCH_BY_NAME'
 
 
 export const getAllPokes = () => {
@@ -47,13 +48,23 @@ export const getAllPokes = () => {
     }
   }
 
+  export const searchByName =(pokeName)=>{
+    return async function(dispatch){
+      let response = await axios.get(`http://localhost:3001/pokemons/?name=${pokeName}`)
+      return dispatch({
+        type: SEARCH_BY_NAME,
+        payload : response.data
+      })
+    }
+  }
+
   export const createPoke = (objPoke) => {
     return async function(dispatch){
-        let response = await axios.post(`http://localhost:3001/pokemons`,objPoke)
-        return dispatch({
-          type: CREATE_POKE,
-          payload: response.data
-        })
+      let response = await axios.post(`http://localhost:3001/pokemons`,objPoke)
+      return dispatch({
+        type: CREATE_POKE,
+        payload: response.data
+      })
     }
   }
 

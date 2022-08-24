@@ -53,7 +53,7 @@ const searchPokeDB = async (id , name) =>{//busca pokemons en BD por id o nombre
       })
       return poke[0]
   }else{
-      return await Pokemon.findAll({
+    let poke = await Pokemon.findAll({
           where:{name : name} ,
           include:{
               model: Types,
@@ -62,7 +62,8 @@ const searchPokeDB = async (id , name) =>{//busca pokemons en BD por id o nombre
                   attributes: []
               }
           }
-      })
+        })
+    return poke[0]
   }
 };
 

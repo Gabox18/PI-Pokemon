@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body{
+    background-image: url(../../img/Video.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} */
+
+.div_Home_container{
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 460px 460px 460px;
+    padding: 2em 0em;
+    margin: 2em 10%;
+    /* outline: 2px solid crimson; */
+    /* margin: 20px auto; centra horizontalmente el contenedor */
+}
+.card_home{
+    /* outline: 2px solid rgb(113, 20, 220); */
+    /* width: 190px;
+    height: 254px; */
+
+}
+img{
+    object-fit: cover;
+    width:100%;
+    height:100%;
+  }
+  
+  .div_container_paginado{
+    display: block;
+  }

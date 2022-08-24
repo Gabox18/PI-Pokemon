@@ -3,8 +3,10 @@ import { useSelector} from 'react-redux'
 import { Link } from "react-router-dom"
 import CartPokes from '../CartPokes/CartPokes.jsx'
 import Paginado from "../paginado/paginado.jsx"
-import Navbar from "../Nav/Nav.jsx"
-//import './home.css'
+import Navbar from "../NavBar/NavBar.jsx"
+import SubNavbar from "../SubNavbar/SubNavbar.jsx"
+import './Home.css'
+
 
 
 function Home (props){
@@ -27,7 +29,10 @@ function Home (props){
     return (
         <div>
             <div>
-                <Navbar  paginado={paginado}/>
+                <Navbar/>
+            </div>
+            <div>
+                <SubNavbar  paginado={paginado}/>
             </div>
             <div className="div_Home_container">
                 {cartasActuales?.map((e) => {

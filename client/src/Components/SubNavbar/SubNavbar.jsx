@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {getAllPokes,filterTypes,filterDb,getTypes,orderPokesBy} from "../../Redux/actions.js";
 //import './nav.css'
 
-function Navbar(props) {
+function SubNavbar(props) {
   const AllTypes = useSelector((state) => state.AllTypes);
   const dispatch = useDispatch();
 
@@ -70,4 +70,4 @@ function Navbar(props) {
   );
 }
 
-export default Navbar
+export default SubNavbar

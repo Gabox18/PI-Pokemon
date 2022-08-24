@@ -67,9 +67,22 @@ const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
 
 const getByName = async (name)=>{ //busca por nombre en BD y Api
   let searchDB = await searchPokeDB(null,name)
-  if(searchDB.length!==0) return searchDB
+  if(searchDB) return [{
+  id:searchDB.id,
+  name: searchDB.name,
+  hp: searchDB.hp,
+  attack: searchDB.attack,
+  defense: searchDB.defense,
+  speed: searchDB.speed,
+  height: searchDB.height,
+  weight: searchDB.weight,
+  background_image: searchDB.background_image,
+  createdInDb: searchDB.createdInDb,
+  types: searchDB.types?.map(e=>e.name)}]
+  //----------------------------------------------------------
   let searchApi = await getDetail(name) 
-  return searchApi
+  return [{...searchApi,
+    types: searchApi.types?.map(e=>e.name)}]
 }
 
 const getById = async (id)=>{//busca por ID en BD y Api
