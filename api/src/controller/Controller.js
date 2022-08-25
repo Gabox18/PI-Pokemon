@@ -14,16 +14,17 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
     //         id: pokeDetail.data.id,
     //         name: pokeDetail.data.name,
     //         background_image: pokeDetail.data.sprites.other.dream_world.front_default,
+    //         background_image_2: pokeDetail.data.sprites.other['official-artwork'].front_default,
     //         types: pokeDetail.data.types.map(t => t.type.name),
     //         attack: pokeDetail.data.stats[1].base_stat,
     //       }
     //   }))
     //   pokemonApi = [...pokemonApi,...poke]
     // }//--fin del for
-      pokemonDB = await getAllPokeDB()
+    pokemonDB = await getAllPokeDB()
     // AllPokemon = [...pokemonDB,...pokemonApi]
     // return AllPokemon;
-     return [...pokemonDB,...data]
+    return [...pokemonDB,...data]
   } catch (error) {
     return error
   }
@@ -45,7 +46,7 @@ const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
     let pokemon = {
       id: response.data.id,
       name: response.data.name,
-      background_image: response.data.sprites.other['official-artwork'].front_default,
+      background_image: response.data.sprites.other.dream_world.front_default,
       hp: response.data.stats[0].base_stat,
       attack: response.data.stats[1].base_stat,
       defense: response.data.stats[2].base_stat,

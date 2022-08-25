@@ -1,7 +1,8 @@
-import {  useState } from "react"
-import { useSelector} from 'react-redux'
+import {  useEffect, useState } from "react"
+import { useDispatch, useSelector} from 'react-redux'
 import { Link } from "react-router-dom"
-import CartPokes from '../CartPokes/CartPokes.jsx'
+import {getTypes,getAllPokes} from "../../Redux/actions.js"
+import CardPokes from '../CardPokes/CardPokes.jsx'
 import Paginado from "../paginado/paginado.jsx"
 import Navbar from "../NavBar/NavBar.jsx"
 import SubNavbar from "../SubNavbar/SubNavbar.jsx"
@@ -11,6 +12,8 @@ import './Home.css'
 
 function Home (props){
     const pokes = useSelector((state)=>state.Pokes)
+    const types = useSelector((state)=>state.AllTypes)
+    const dispatch = useDispatch()
 
     //-----------------logica paguinado------------------------
     const [paginaActual,setPaginaActual] = useState(1)
@@ -23,11 +26,17 @@ function Home (props){
     const paginado = (numeroDePagina)=>{
         setPaginaActual(numeroDePagina)
     }
-
     //-----------------logica paginado------------------------
 
+    useEffect(()=>{
+        if(!types.length) {
+            dispatch(getTypes())
+            dispatch(getAllPokes())
+        }
+    },[dispatch, types])
+    
     return (
-        <div>
+        <div className="container_p">
             <div>
                 <Navbar/>
             </div>
@@ -39,7 +48,7 @@ function Home (props){
                     return (
                         <div key={e.id} className='card_home'>
                             <Link to={`home/Pokemon/${e.id}`} >
-                                <CartPokes name={e.name} img={e.background_image} types={e.types?.map(t => t)} />
+                                <CardPokes name={e.name} img={e.background_image} img2={e.background_image_2} types={e.types?.map(t => t)} />
                             </Link>
                         </div>)
                 })}

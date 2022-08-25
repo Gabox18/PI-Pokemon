@@ -1,0 +1,59 @@
+/* From uiverse.io by @JoseIsra */
+.card {
+    width: 200px;
+    cursor: pointer;
+    border-radius: 7%;
+  }
+  
+  .content {
+    text-align: center;
+    position: relative;
+    transition: all 1.25s;
+    height: 350px;
+    background-image: url('../../Img/Aro_Pokémon_GO.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10em;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 7%;
+    outline: #4f20f870 solid 0.5px;
+  }
+  
+  .card:hover .content {
+    transform: rotateY(0.5turn);
+  }
+  
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 7%;
+    backface-visibility: hidden;
+  }
+  
+  .title {
+    transform: translateZ(5rem);
+    font-size: 2rem;
+    backface-visibility: hidden;
+  }
+  
+  .back {
+    transform: rotateY(0.5turn);
+    outline: #ff000d solid 1px;
+    /* background-color: #009bff;*/
+    background-image: url('../../Img/pokemon-musicos.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .description {
+    transform: translateZ(3rem);
+    backface-visibility: hidden;
+  }

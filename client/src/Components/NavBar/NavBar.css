@@ -51,7 +51,7 @@
     left: var(--inline-padding-of-input);
   }
   /* svg -- size */
-  svg {
+  .svg {
     width: 17px;
     display: block;
   }
