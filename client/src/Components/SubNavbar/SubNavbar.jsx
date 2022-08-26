@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { Link } from "react-router-dom";
-import {getAllPokes,filterTypes,filterDb,getTypes,orderPokesBy} from "../../Redux/actions.js";
-//import './nav.css'
+import {filterTypes,filterDb,orderPokesBy} from "../../Redux/actions.js";
+import './SubNavbar.css'
 
 function SubNavbar(props) {
   const AllTypes = useSelector((state) => state.AllTypes);
@@ -20,22 +20,23 @@ function SubNavbar(props) {
   }
 
   return (
-    <div className="div_container">
-      <div className="div_oder">
-        <select id="Ordenar" onChange={(e) => handleSelectOrderBy(e)}>
-          <option>Ordenar por</option>
-          <optgroup label="Nombres">
-            <option value="asc_Alf">A - Z</option>
-            <option value="des_Alf">Z - A</option>
-          </optgroup>
-          <optgroup label="Ataque">
-            <option value="asc_Ata">Ascendente</option>
-            <option value="des_Ata">descendente</option>
-          </optgroup>
-        </select>
-      </div>
+    <div className="div_sub_nav">
+        <div className="div_oder select-dropdown">
+          <select id="Ordenar" onChange={(e) => handleSelectOrderBy(e)}>
+            <option>Ordenar por</option>
+            <optgroup label="Nombres">
+              <option value="asc_Alf">A - Z</option>
+              <option value="des_Alf">Z - A</option>
+            </optgroup>
+            <optgroup label="Ataque">
+              <option value="asc_Ata">Ascendente</option>
+              <option value="des_Ata">descendente</option>
+            </optgroup>
+          </select>
+        </div>
+      
 
-      <div className="div_filter">
+      <div className="div_filter select-dropdown">
         <select id="Ordenar" onChange={(e) => handleSelectFilter(e)}>
           <option>Filtrar por</option>
           <optgroup label="Mis Pokemons">
@@ -53,19 +54,18 @@ function SubNavbar(props) {
         </select>
       </div>
 
-      <div className="div_reset">
+      {/* <div className="div_create">
+        <Link to="/home/Create">
+          <button>Crear Pokemons</button>
+        </Link>
+      </div> */}
+
+      {/* <div className="div_reset">
         <button onClick={() => {
             dispatch(getAllPokes())
             dispatch(getTypes())
         }}>Mostrar Todos</button>
-      </div>
-
-      <div className="div_create">
-        <Link to="/home/Create">
-          <button>Crear Pokemons</button>
-        </Link>
-      </div>
-
+      </div> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux"
 import { getAllPokes,getTypes } from "../../Redux/actions";
 import {Link} from 'react-router-dom'
-import imgLanding from '../../Img/pokemon.png'
+import imgLanding from '../../Img/Landing_pokemon.png'
 
 function LandingPage (props){
 

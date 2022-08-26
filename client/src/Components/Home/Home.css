@@ -1,20 +1,36 @@
 
 .container_p{
-    background-image: url('../../Img/pokemon-in-the-wild.png');
+    background-image: url('../../Img/Font_app.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    position: relative;
 }
 
 .div_Home_container{
     display: grid;
     grid-template-columns: 400px 400px 400px;
     grid-template-rows: 460px 460px 460px;
-    /* padding: 2em 0em; */
     margin: 2em 7%;
+    /* padding: 2em 0em; */
 }
 
   .div_container_paginado{
     display: block;
+  }
+
+  .div_container_paginado button{
+    margin: 0px 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: #283542;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .div_loader{
+    height: 100vh;
   }

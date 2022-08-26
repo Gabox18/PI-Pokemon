@@ -6,6 +6,7 @@ import CardPokes from '../CardPokes/CardPokes.jsx'
 import Paginado from "../paginado/paginado.jsx"
 import Navbar from "../NavBar/NavBar.jsx"
 import SubNavbar from "../SubNavbar/SubNavbar.jsx"
+import Loader from "../Loader/Loader.jsx"
 import './Home.css'
 
 
@@ -30,8 +31,11 @@ function Home (props){
 
     useEffect(()=>{
         if(!types.length) {
-            dispatch(getTypes())
-            dispatch(getAllPokes())
+            setTimeout(()=>{
+               dispatch(getTypes())
+                dispatch(getAllPokes()) 
+            },4000)
+            
         }
     },[dispatch, types])
     
@@ -43,7 +47,8 @@ function Home (props){
             <div>
                 <SubNavbar  paginado={paginado}/>
             </div>
-            <div className="div_Home_container">
+            {types.length?
+             <div className="div_Home_container">
                 {cartasActuales?.map((e) => {
                     return (
                         <div key={e.id} className='card_home'>
@@ -53,10 +58,14 @@ function Home (props){
                         </div>)
                 })}
             </div>
+            :<div className="div_loader">
+                <Loader/>
+            </div>}
             <div className="div_container_paginado">
                 <Paginado cartasPorPagina={cartasPorPagina} allPokes={pokes.length} paginado={paginado} />
             </div>
         </div>
+        
     )
 }
 

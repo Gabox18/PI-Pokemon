@@ -9,7 +9,7 @@ function Paginado (props){
     }
 
     return(
-        <footer>
+        <div className="_paginado">
             <ul>
                 {numeroDepagina?.map(numeroPagi=>{
                     return(
@@ -17,7 +17,7 @@ function Paginado (props){
                     ) 
                 })}
             </ul>
-        </footer>
+        </div>
     )
 }
 

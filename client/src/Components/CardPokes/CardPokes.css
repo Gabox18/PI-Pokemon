@@ -10,7 +10,7 @@
     position: relative;
     transition: all 1.25s;
     height: 350px;
-    background-image: url('../../Img/Aro_Pokémon_GO.png');
+    background-image: url('../../Img/Card_Front.png');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 10em;
@@ -48,7 +48,7 @@
     transform: rotateY(0.5turn);
     outline: #ff000d solid 1px;
     /* background-color: #009bff;*/
-    background-image: url('../../Img/pokemon-musicos.jpg');
+    background-image: url('../../Img/Card_Back.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }
