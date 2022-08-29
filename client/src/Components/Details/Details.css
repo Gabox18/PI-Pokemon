@@ -1,0 +1,267 @@
+
+.container_detailss{
+  background-image: url('../../Img/fondo-detail.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* From uiverse.io by @mrhyddenn */
+.card_details {
+  outline: #28354231 solid 1px;
+  width: 790px;
+  height: 390px;
+  background: #ffffff75;
+  box-shadow: 0 1px 25px rgba(0,0,0,0.2);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 12px 10px;
+  border-radius: 5%;
+}
+
+.card_load {
+  outline: #343a407a solid 1px;
+  width: 370px;
+  height: 370px;
+  position: relative;
+  float: left;
+  background-image: url('../../Img/Card_Back_detail.png');
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-position: 100% 0;
+  animation: load89234 3s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_load_extreme_title {
+  /* outline: red solid 1px; */
+  width: 350px;
+  height: 40px;
+  position: relative;
+  float: right;
+  left: -5px;
+  border-radius: 5px;
+  background: linear-gradient(120deg, #343a407a 30%, #f0f0f091 38%, #f0f0f091 
+  40%, #343a407a 48%);
+  right: 70px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 3s infinite;
+}
+
+.card_load_extreme_descripion {
+  width: 350px;
+  height: 315px;
+  position: relative;
+  float: right;
+  left: -5px;
+  border-radius: 5px;
+  background: linear-gradient(120deg, #343a407a 30%, #f0f0f091 38%, #f0f0f091 
+  40%, #343a407a 48%);
+  right: 70px;
+  margin-top: 10px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 3s infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes load89234 {
+  100% {
+    background-position: -100% 0;
+  } 
+}
+
+.card_load_extreme_childre{
+  width: 80%;
+  /* outline: red solid 1px; */
+}
+
+.img_details{
+  border-radius: 9%;
+}
+
+progress {
+  height: 25px;
+  width: 95%;
+  margin: 0px 8px 10px 0px;
+}
+
+progress::-moz-progress-bar {
+  height: 25px;
+}
+.container-sub-info{
+  display: flex;
+}
+
+.div-info-poke{
+width: 50%;
+text-align: left;
+margin: 0px 0px 0px 8px;
+}
+
+.div-value-poke{
+text-align: right;
+width: 50%;
+margin: 0px 8px 0px 0px;
+}
+ 
+.div_btn_go_home{
+  padding-bottom: 35px;
+  position: fixed;
+  left: 45%;
+	bottom: 0;
+	
+}
+
+/* From uiverse.io by @Jedi-hongbin */
+.btn-back {
+  display: flex;
+  height: 3em;
+  width: 120px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background: #3a4a5e;
+  color: #ffffff;
+ }
+ 
+ .btn-back > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
+ }
+
+ .btn-back > span{
+  font-size: 1.2rem;
+  color: #ffffff;
+ }
+ 
+ .btn-back:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+ }
+ 
+ .btn-back:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  transform: translateY(-2px);
+  border: 1px solid #1b9bee;
+ }
+ 
+/*----------------------------------------------------------------------------------------------------------*/
+  /* progress {
+    opacity: 0;
+  }
+  
+  .progress-element {
+    width: 200px;
+    margin: 0 0 10px;
+  }
+  
+  .progress-container {
+    position: relative;
+    background: #eee;
+    height: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .progress-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: turquoise;
+  }
+  
+  .progress-element--html .progress-container::before {
+    animation: progress-html 1s ease-in forwards;
+  }
+  
+  .progress-element--css .progress-container::before {
+    animation: progress-css 1s ease-in forwards;
+  }
+  
+  .progress-element--javascript .progress-container::before {
+    animation: progress-javascript 1s ease-in forwards;
+  }
+  
+  .progress-label {
+    position: relative;
+  }
+  
+  .progress-label::after {
+    counter-reset: num var(--num);
+    content: counter(num) "%";
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .progress-element--html .progress-label::after {
+    animation: progress-text-html 1s ease-in forwards;
+  }
+  
+  .progress-element--css .progress-label::after {
+    animation: progress-text-css 1s ease-in forwards;
+  }
+  
+  .progress-element--javascript .progress-label::after {
+    animation: progress-text-javascript 1s ease-in forwards;
+  }
+  
+  @keyframes progress-html {
+    to {
+      width: 95%;
+    }
+  }
+  
+  @keyframes progress-css {
+    to {
+      width: 80%;
+    }
+  }
+  
+  @keyframes progress-javascript {
+    to {
+      width: 65%;
+    }
+  }
+  
+  @keyframes progress-text-html {
+    to {
+      --num: 95;
+    }
+  }
+  
+  @keyframes progress-text-css {
+    to {
+      --num: 80;
+    }
+  }
+  
+  @keyframes progress-text-javascript {
+    to {
+      --num: 65;
+    }
+  } */
+
+
+
+ 

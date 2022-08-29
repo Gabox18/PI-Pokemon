@@ -46,11 +46,11 @@
   
   .back {
     transform: rotateY(0.5turn);
-    outline: #ff000d solid 1px;
+    outline: #ff000db6 solid 1px;
     /* background-color: #009bff;*/
-    background-image: url('../../Img/Card_Back.jpg');
+    background-image: url('../../Img/Card_Back.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
   }
   
   .description {

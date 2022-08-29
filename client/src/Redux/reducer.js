@@ -41,6 +41,7 @@ const initialState = {
         }
 
       case FILTER_TYPES:
+        console.log(auxAllPokes)
         return {
           ...state,
           Pokes: action.payload ==='Filtrar por'

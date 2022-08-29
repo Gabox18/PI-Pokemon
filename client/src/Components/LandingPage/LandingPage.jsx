@@ -15,11 +15,11 @@ function LandingPage (props){
     },[])
     
     return(
-        <dir>
+        <div className="div_landing">
             <h1>Henry Pokemon</h1>
-            <img src={imgLanding} alt="fondo" width='650px'/><br />
+            <img src={imgLanding} alt="fondo" width='650px' /><br />
             <Link to={'/home'}><button>Go To Pokemons</button></Link>
-        </dir>
+        </div>
     )
 }
 

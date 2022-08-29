@@ -2,7 +2,7 @@
 /* this is a recreation of twitter search in css */
 .form {
     --input-text-color: #fff;
-    --input-bg-color: #283542;
+    --input-bg-color: #3a4a5e;
     --focus-input-bg-color: transparent;
     --text-color: #949faa;
     --active-color: #1b9bee;
@@ -30,13 +30,13 @@
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: #00000029 0px 1px 4px;
   }
   /* label styling */
   label {
     width: 100%;
     padding: 0.8em;
-    height: 40px;
+    height: 35px;
     padding-inline: var(--inline-padding-of-input);
     display: flex;
     align-items: center;
@@ -103,3 +103,10 @@
     visibility: visible;
   }
   /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+
+  .search-btn{
+    border: none;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    background-color: #ffffff00;
+  }
