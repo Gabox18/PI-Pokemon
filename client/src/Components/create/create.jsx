@@ -68,7 +68,21 @@ function CreateGame(props){
     return(
         renderDetails === false? 
             <div className="div_create">
-                <input type="image" src={tituloCreate} alt="Logo_Pokemon" onClick={() => dispatch(getAllPokes())} width='400px'/>
+
+                <div className="nav_comp_create">
+                    <div className="div_btn_go_home_create div_sub_info_create_2">
+                        <Link to={'/home'}>
+                            <button className="btn-back">
+                                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+                                <span>Volver</span>
+                            </button>
+                        </Link>
+                    </div>
+
+                    <img src={tituloCreate} alt="Logo_Pokemon" height='60px' />
+
+                </div>
+
                 <form onSubmit={(e) => handleSubmit(e)} className='form_create'>
                     <div className="padre_info">
                         <div className="hijo_form">
@@ -138,15 +152,17 @@ function CreateGame(props){
                         </div>
                     </div>
                     <div className="div_sub_info_create div_imput_img">
-                        <label htmlFor="background_image_l" className="label_create">Imagen: </label>
+                        <label htmlFor="background_image_l" className="label_create_img">Imagen:</label>
                         <input type="text" name="background_image" id="background_image_l" onChange={(e) => handleInputChange(e)} value={form.url} />
+                        <div className="div_btn_go_home_create">
+                            <button type='submit' disabled={Object.keys(validate(form)).length === 0 ? false : true} onClick={(e) => handleSubmit(e)} className="btn-back">
+                                <span>Crear</span>
+                            </button>
+                        </div>
+
                     </div>
 
-                    <button type='submit' disabled={Object.keys(validate(form)).length === 0 ? false : true} onClick={(e) => handleSubmit(e)}>Crear Pokemon</button>
                 </form>
-
-
-                <Link to='/home'>inicio</Link>
             </div>
 
         :<ViewCreate name={form.name}

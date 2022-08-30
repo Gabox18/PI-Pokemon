@@ -4,8 +4,24 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    
+    height: 100vh;
 }
+
+.nav_comp_create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+    background-color: #343A40;
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.nav_comp_create img {
+    position: relative;
+    right: 50px;
+} 
 
 .div_sub_info_create {
     display: flex;
@@ -15,14 +31,18 @@
 }
 
 .label_create {
-    width: 18%;
+    width: 22%;
+}
+
+.label_create_img {
+    width: 5%;
 }
 
 .padre_info {
     display: flex;
     width: 60%;
     margin: auto;
-    outline: red solid 1px;
+    /* outline: red solid 1px; */
     background-color: #ffffff75;
     box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2);
     border-radius: 5%;
@@ -31,7 +51,7 @@
 .hijo_form {
     width: 50%;
     border-radius: 5%;
-    margin: 40px;
+    margin: 25px;
     background: linear-gradient(120deg, #343a407a 30%, #f0f0f091 38%, #f0f0f091 40%, #343a407a 48%);
     right: 70px;
     background-size: 200% 100%;
@@ -40,9 +60,9 @@
 }
 
 .hijo_types {
-    width: 50%;
+    width: 45%;
     border-radius: 5%;
-    margin: 40px;
+    margin: 25px;
     background-color: #ffffff75;
 }
 
@@ -55,9 +75,14 @@
 
 .div_sub_info_type {
     width: 60px;
-    border-radius: 45%;
+    border-radius: 30%;
     margin: 5px;
-    outline: red solid 1px;
+    /* outline: red solid 1px; */
+    background: linear-gradient(120deg, #343a407a 30%, #f0f0f091 38%, #f0f0f091 40%, #343a407a 48%);
+    right: 70px;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load89234 3s infinite;
 }
 
 .div_sub_info_type label {
@@ -66,9 +91,63 @@
     align-items: center;
 }
 
-.div_imput_img{
+.div_imput_img {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+}
+
+/*button*/
+.div_btn_go_home_create {
+    /* outline: red solid 1px; */
+    align-self: center;
+    padding-left: 10px;
+}
+
+.div_sub_info_create_2{
+    position: relative;
+    right: 400px;
+    
+}
+
+.btn-back2{
+}
+
+.btn-back {
+    display: flex;
+    height: 3em;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #3a4a5e;
+    color: #ffffff;
+}
+
+.btn-back>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+}
+
+.btn-back>span {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.btn-back:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+.btn-back:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+    border: 1px solid #1b9bee;
 }

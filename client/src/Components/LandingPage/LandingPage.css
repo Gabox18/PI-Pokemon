@@ -1,0 +1,78 @@
+.div_landing{
+    display: flexbox;
+    background-image: url('https://wallpaperaccess.com/full/4167709.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+}
+
+
+.div_landing h1{
+    color: #fff;
+}
+
+.div_button_landing{
+    position: relative;
+    top: 200px; 
+}
+
+.div_landing_footer .section{ /*.section clase que esta en el css de Footer*/
+    position:fixed;
+    bottom:0px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.048);
+    color: #fff;
+}
+
+/* From uiverse.io by @mobinkakei */
+.btn {
+    perspective: 1000px;
+    padding: 1em 1em;
+    background: linear-gradient(#1f1a66, #12164d);
+    border: none;
+    outline: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #fff;
+    text-shadow: 0 10px 10px #000;
+    cursor: pointer;
+    transform: rotateX(70deg) rotateZ(30deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 10%;
+   }
+   
+   .btn::before {
+    content: "";
+    width: 100%;
+    height: 15px;
+    background-color: #e9e62196;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    border-radius: 10%;
+   }
+   
+   .btn::after {
+    content: "";
+    width: 15px;
+    height: 100%;
+    background-color: #e9e62196;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+    border-radius: 10%;
+   }
+   
+   .btn:hover {
+    transform: rotateX(30deg) rotateZ(0);
+   }
+   

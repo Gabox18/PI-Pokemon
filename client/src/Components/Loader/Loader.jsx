@@ -4,7 +4,7 @@ import "./Loader.css"
 function Loader (){
     return(
         <div>
-            <div class="spinner">
+            <div className="spinner">
                 <span>C</span>
                 <span>A</span>
                 <span>R</span>
@@ -14,7 +14,7 @@ function Loader (){
                 <span>D</span>
                 <span>0</span>
             </div>
-            <div class="pokemon">
+            <div className="pokemon">
             </div>
         </div>
     )

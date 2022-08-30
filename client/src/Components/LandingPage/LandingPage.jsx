@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux"
 import { getAllPokes,getTypes } from "../../Redux/actions";
 import {Link} from 'react-router-dom'
-import imgLanding from '../../Img/Landing_pokemon.png'
+import Footer from '../Footer/Footer.jsx'
+import "./LandingPage.css"
 
 function LandingPage (props){
 
@@ -17,8 +18,12 @@ function LandingPage (props){
     return(
         <div className="div_landing">
             <h1>Henry Pokemon</h1>
-            <img src={imgLanding} alt="fondo" width='650px' /><br />
-            <Link to={'/home'}><button>Go To Pokemons</button></Link>
+            <div className="div_button_landing">
+                <Link to={'/home'}><button className="btn">Go To Pokemons</button></Link>
+            </div>
+            <div className="div_landing_footer">
+                <Footer/>
+            </div>
         </div>
     )
 }
