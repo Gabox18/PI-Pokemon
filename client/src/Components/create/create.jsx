@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import {getTypes,getAllPokes,createPoke} from "../../Redux/actions.js"
 import validate from "../../Funciones_js/Validacion.js";
 import ViewCreate from "./ViewCreate.jsx";
+import tituloCreate from "../../Img/título-Create.png"
+import './create.css'
  
 function CreateGame(props){
     
@@ -65,60 +67,87 @@ function CreateGame(props){
     }
     return(
         renderDetails === false? 
-        <div>
-            <h2>Cargar Datos del Juego</h2>
-            
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <label htmlFor="name_l">Nombre: </label>
-                <input type="text" name="name" id="name_l" onChange={(e) =>handleInputChange(e)} value={form.name} />
-                {validate(form).name?(<p className="danger">{validate(form).name}</p>):(<></>)}
+            <div className="div_create">
+                <input type="image" src={tituloCreate} alt="Logo_Pokemon" onClick={() => dispatch(getAllPokes())} width='400px'/>
+                <form onSubmit={(e) => handleSubmit(e)} className='form_create'>
+                    <div className="padre_info">
+                        <div className="hijo_form">
+                            <div className="div_sub_info_create">
+                                <label htmlFor="name_l" className="label_create">Nombre:</label>
+                                <input type="text" name="name" id="name_l" onChange={(e) => handleInputChange(e)} value={form.name} />
+                                {validate(form).name ? (<p className="danger">{validate(form).name}</p>) : (<p></p>)}
+                            </div>
 
 
-                <label htmlFor="hp_l">Vida: </label>
-                <input type="number" name="hp" id="hp_l" onChange={(e) =>handleInputChange(e)} value={form.hp} ></input>
-                {validate(form).hp?(<p className="danger">{validate(form).hp}</p>):(<></>)}
+                            <div className="div_sub_info_create">
+                                <label htmlFor="hp_l" className="label_create">Vida:</label>
+                                <input type="range" min="0" max="100" name="hp" id="hp_l" onChange={(e) => handleInputChange(e)} value={form.hp} ></input>
+                                <p>{form.hp}</p>
+                                {validate(form).hp ? (<p className="danger">{validate(form).hp}</p>) : (<></>)}
+                            </div>
 
 
-                <label htmlFor="attack_l">Ataque: </label>
-                <input type="number" name="attack" id="attack_l" onChange={(e) =>handleInputChange(e)} value={form.attack} />
-                {validate(form).attack?(<p className="danger">{validate(form).attack}</p>):(<></>)}
+                            <div className="div_sub_info_create">
+                                <label htmlFor="attack_l" className="label_create">Ataque:</label>
+                                <input type="range" min="0" max="100" name="attack" id="attack_l" onChange={(e) => handleInputChange(e)} value={form.attack} />
+                                <p>{form.attack}</p>
+                                {validate(form).attack ? (<p className="danger">{validate(form).attack}</p>) : (<></>)}
+                            </div>
 
-                <label htmlFor="defense_l">Defensa: </label>
-                <input type="number" name="defense" id="defense_l" onChange={(e) =>handleInputChange(e)} value={form.defense} ></input>
-                {validate(form).defense?(<p className="danger">{validate(form).defense}</p>):(<></>)}
+                            <div className="div_sub_info_create">
+                                <label htmlFor="defense_l" className="label_create">Defensa:</label>
+                                <input type="range" min="0" max="100" name="defense" id="defense_l" onChange={(e) => handleInputChange(e)} value={form.defense} ></input>
+                                <p>{form.defense}</p>
+                                {validate(form).defense ? (<p className="danger">{validate(form).defense}</p>) : (<></>)}
+                            </div>
 
-                <label htmlFor="speede_l">Velocidad: </label>
-                <input type="number" name="speed" id="speed_l" onChange={(e) =>handleInputChange(e)} value={form.speed} ></input>
-                {validate(form).speed?(<p className="danger">{validate(form).speed}</p>):(<></>)}
+                            <div className="div_sub_info_create">
+                                <label htmlFor="speede_l" className="label_create">Velocidad:</label>
+                                <input type="range" min="0" max="100" name="speed" id="speed_l" onChange={(e) => handleInputChange(e)} value={form.speed} ></input>
+                                <p>{form.speed}</p>
+                                {validate(form).speed ? (<p className="danger">{validate(form).speed}</p>) : (<></>)}
+                            </div>
 
-                <label htmlFor="height_l">Altura: </label>
-                <input type="number" name="height" id="height_l" onChange={(e) =>handleInputChange(e)} value={form.height} ></input>
-                {validate(form).height?(<p className="danger">{validate(form).height}</p>):(<></>)}
+                            <div className="div_sub_info_create">
+                                <label htmlFor="height_l" className="label_create">Altura:</label>
+                                <input type="range" min="0" max="100" name="height" id="height_l" onChange={(e) => handleInputChange(e)} value={form.height} ></input>
+                                <p>{form.height}</p>
+                                {validate(form).height ? (<p className="danger">{validate(form).height}</p>) : (<></>)}
+                            </div>
 
-                <label htmlFor="weight_l">Peso: </label>
-                <input type="number" name="weight" id="weight_l" onChange={(e) =>handleInputChange(e)} value={form.weight} ></input>
-                {validate(form).weight?(<p className="danger">{validate(form).weight}</p>):(<></>)}
- 
-
-                <div>
-                    <h3 >Elige los Tipos</h3>
-                    {types?.map((type) => (
-                        <div key={type}>
-                            <input type="checkbox" name="types" id={type} value={type} onChange={(e) => handleInputChange(e)} />
-                            <label htmlFor={type}>{type}</label>
+                            <div className="div_sub_info_create">
+                                <label htmlFor="weight_l" className="label_create">Peso:</label>
+                                <input type="range" min="0" max="100" name="weight" id="weight_l" onChange={(e) => handleInputChange(e)} value={form.weight} ></input>
+                                <p>{form.weight}</p>
+                                {validate(form).weight ? (<p className="danger">{validate(form).weight}</p>) : (<></>)}
+                            </div>
                         </div>
-                    ))}
-                    {validate(form).types?(<p className="danger">{validate(form).types}</p>):(<></>)}
-                </div>
-       
-                <label htmlFor="background_image_l">Imagen: </label>
-                <input type="text" name="background_image" id="background_image_l" onChange={(e) =>handleInputChange(e)} value={form.url} />
 
-                <button type='submit' disabled={Object.keys(validate(form)).length === 0?false:true} onClick={(e)=>handleSubmit(e)}>Crear Pokemon</button>
-            </form>
 
-            <Link to='/home'>inicio</Link>
-        </div>
+                        <div className="hijo_types">
+                            <h3 >Elige los Tipos</h3>
+                            <div className="div_Types">
+                                {types?.map((type) => (
+                                    <div className="div_sub_info_type" key={type}>
+                                        <input type="checkbox" name="types" id={type} value={type} onChange={(e) => handleInputChange(e)} />
+                                        <label htmlFor={type}>{type}</label>
+                                    </div>
+                                ))}
+                                {validate(form).types ? (<p className="danger">{validate(form).types}</p>) : (<></>)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="div_sub_info_create div_imput_img">
+                        <label htmlFor="background_image_l" className="label_create">Imagen: </label>
+                        <input type="text" name="background_image" id="background_image_l" onChange={(e) => handleInputChange(e)} value={form.url} />
+                    </div>
+
+                    <button type='submit' disabled={Object.keys(validate(form)).length === 0 ? false : true} onClick={(e) => handleSubmit(e)}>Crear Pokemon</button>
+                </form>
+
+
+                <Link to='/home'>inicio</Link>
+            </div>
 
         :<ViewCreate name={form.name}
         background_image={form.background_image} 

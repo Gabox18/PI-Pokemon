@@ -1,0 +1,74 @@
+.div_create {
+    background-image: url('../../Img/fondo-Create.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+.div_sub_info_create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.label_create {
+    width: 18%;
+}
+
+.padre_info {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    outline: red solid 1px;
+    background-color: #ffffff75;
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 5%;
+}
+
+.hijo_form {
+    width: 50%;
+    border-radius: 5%;
+    margin: 40px;
+    background: linear-gradient(120deg, #343a407a 30%, #f0f0f091 38%, #f0f0f091 40%, #343a407a 48%);
+    right: 70px;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load89234 3s infinite;
+}
+
+.hijo_types {
+    width: 50%;
+    border-radius: 5%;
+    margin: 40px;
+    background-color: #ffffff75;
+}
+
+.div_Types {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.div_sub_info_type {
+    width: 60px;
+    border-radius: 45%;
+    margin: 5px;
+    outline: red solid 1px;
+}
+
+.div_sub_info_type label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_imput_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
