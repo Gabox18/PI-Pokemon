@@ -9,6 +9,7 @@ export const CREATE_POKE = 'CREATE_POKE'
 export const POKE_DETAILS = 'POKE_DETAILS'
 export const CLEAR_DETAILS = 'CLEAR_DETAILS'
 export const SEARCH_BY_NAME ='SEARCH_BY_NAME'
+export const CLEAR_ALL_POKES = 'CLEAR_ALL_POKES'
 
 
 export const getAllPokes = () => {
@@ -86,5 +87,11 @@ export const getAllPokes = () => {
     return{
       type : ORDER_POKES_BY,
       payload : typeOrder
+    }
+  }
+
+  export const clearAllPokes = () =>{
+    return{
+      type : CLEAR_ALL_POKES,
     }
   }

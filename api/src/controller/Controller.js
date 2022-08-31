@@ -21,7 +21,7 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
     //   }))
     //   pokemonApi = [...pokemonApi,...poke]
     // }//--fin del for
-    pokemonDB = await getAllPokeDB()
+     pokemonDB = await getAllPokeDB()
     // AllPokemon = [...pokemonDB,...pokemonApi]
     // return AllPokemon;
     return [...pokemonDB,...data]

@@ -15,6 +15,7 @@ import './Home.css'
 function Home (props){
     const pokes = useSelector((state)=>state.Pokes)
     const types = useSelector((state)=>state.AllTypes)
+    const PokesCopy = useSelector((state)=>state.PokesCopy)
     const dispatch = useDispatch()
 
     //-----------------logica paguinado------------------------
@@ -32,23 +33,20 @@ function Home (props){
 
     useEffect(()=>{
         if(!types.length) {
-            setTimeout(()=>{
                dispatch(getTypes())
-                dispatch(getAllPokes()) 
-            },4000)
-            
+                dispatch(getAllPokes())   
         }
     },[dispatch, types])
     
     return (
         <div className="container_p">
             <div>
-                <Navbar/>
+                <Navbar paginado={paginado}/>
             </div>
             <div>
                 <SubNavbar  paginado={paginado}/>
             </div>
-            {types.length
+            {PokesCopy.length
             ? <div className="div_Home_container">
                 {cartasActuales?.map((e) => {
                     return (

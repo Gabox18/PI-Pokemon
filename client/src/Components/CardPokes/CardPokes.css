@@ -1,3 +1,5 @@
+
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
 /* From uiverse.io by @JoseIsra */
 .card {
     width: 200px;
@@ -37,13 +39,22 @@
     border-radius: 7%;
     backface-visibility: hidden;
   }
-  
-  .title {
+  .title,
+  .title_2 {
     transform: translateZ(5rem);
-    font-size: 2rem;
+    color: #ffcb05;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1.4pt;
     backface-visibility: hidden;
+    -webkit-text-stroke: 1pt #1d2c5e;
+    text-shadow: 0 0 5px #1d2c5e;
   }
-  
+
+  .title_2{
+    font-size: 1.2rem
+  }
+
   .back {
     transform: rotateY(0.5turn);
     outline: #ff000db6 solid 1px;
@@ -56,4 +67,10 @@
   .description {
     transform: translateZ(3rem);
     backface-visibility: hidden;
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem
+  }
+
+  .back img{
+    border-radius: 50px;
   }

@@ -8,6 +8,12 @@
   height: 100vh;
 }
 
+.div_sub_info_create_1{
+  position: relative;
+  left: 680px;
+  
+}
+
 /* From uiverse.io by @mrhyddenn */
 .card_details {
   outline: #28354231 solid 1px;

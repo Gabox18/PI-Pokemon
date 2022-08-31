@@ -15,6 +15,7 @@ function Search (props){
     const handleSubmit =(e)=> {
         e.preventDefault();
         dispatch(searchByName(name))
+        props.paginado(1);
      }
 
     return (

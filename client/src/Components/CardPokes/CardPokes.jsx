@@ -1,6 +1,6 @@
 import React from "react";
 import './CardPokes.css'
-
+let img_aux = 'https://pm1.narvii.com/6338/ca7ea6ac3d3d733e024031a3b5d79394ce6cd7f9_hq.jpg'
 
 function CardPokes(props){
   return (
@@ -12,11 +12,11 @@ function CardPokes(props){
                 </div>
 
                 <div className="back">
-                    <h4 className="title_2">Type</h4>
+                    <h4 className="title_2">Tipo</h4>
                     <p className="description">
-                        {props.types?.toString()}
+                        {props.types?.toString().split(',').join(' / ')}
                     </p>
-                    <img src={props.img2} alt="cover" width='280px' height='250px'/>   
+                    <img src={!props.img2?img_aux:props.img2} alt="cover" width='280px' height='250px'/>   
                 </div>
             </div>
         </div>

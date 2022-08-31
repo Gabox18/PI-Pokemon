@@ -19,6 +19,7 @@
     width: var(--width-of-input);
     position: relative;
     isolation: isolate;
+    right: 15px;
   }
   /* a fancy bg for showing background and border when focus. */
   .fancy-bg {

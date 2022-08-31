@@ -78,9 +78,7 @@ function CreateGame(props){
                             </button>
                         </Link>
                     </div>
-
-                    <img src={tituloCreate} alt="Logo_Pokemon" height='60px' />
-
+                    <img src={tituloCreate} alt="Logo_Pokemon" height='70px' />
                 </div>
 
                 <form onSubmit={(e) => handleSubmit(e)} className='form_create'>

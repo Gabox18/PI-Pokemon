@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getAllPokes } from "../../Redux/actions";
+import { getAllPokes,clearAllPokes } from "../../Redux/actions";
 import logo from "../../Img/Pokemon_logo.png"
 import Search from "./Search/Search";
 import {Link} from 'react-router-dom'
@@ -9,11 +9,16 @@ import './NavBar.css'
 function Navbar (props){
     const dispatch = useDispatch()
 
+    function onClickChange(){
+        dispatch(getAllPokes())
+        dispatch(clearAllPokes())
+    }
+
     return(
         <nav className="nav_comp">
-            <input type="image" src={logo} alt="Logo_Pokemon" onClick={() => dispatch(getAllPokes())} className="logo div_logo" />
+            <input type="image" src={logo} alt="Logo_Pokemon" onClick={() => onClickChange()} className="logo div_logo" />
             <div className="div_search">
-                <Search />
+                <Search paginado={props.paginado}/>
             </div>
             <div className="div_btn">
                 <Link to={'/home/Create'}>

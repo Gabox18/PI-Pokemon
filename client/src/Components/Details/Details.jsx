@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,Link } from "react-router-dom";
 import { getDetailsPoke,clearDetails } from "../../Redux/actions";
-import Navbar from "../NavBar/NavBar.jsx"
+import imgCenter from '../../Img/título_info.png'
 import './Details.css'
 
 function Details (props){
@@ -20,7 +20,20 @@ function Details (props){
    
     return(
         <div className="container_detailss">
-            <Navbar/>
+
+            <div className="nav_comp_create">
+                <div className="div_btn_go_home_create div_sub_info_create_1">
+                    <Link to={'/home/Create'}>
+                        <button className="create_btn">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> Crear Pokemon
+                            </span>
+                        </button>
+                    </Link>
+                </div>
+                <img src={imgCenter} alt="Logo_Pokemon" height='70px' />
+            </div>
+
             <div className="card_details">
                 <div className="card_load"><img src={detailsPoke.background_image} width='250px' height='300px' alt="Cover Game" className="img_details" /></div>
                 <div className="card_load_extreme_title"><h1>{detailsPoke.name}</h1></div>
@@ -31,41 +44,41 @@ function Details (props){
                         </div>
                         <progress className="amount-progress" value={detailsPoke.hp} max="100"></progress>
                     </div>
-            
+
                     <div className="card_load_extreme_childre">
                         <div className="container-sub-info">
                             <h4 className="div-info-poke">Ataque</h4><p className="div-value-poke">{detailsPoke.attack}</p>
                         </div>
                         <progress className="amount-progress" value={detailsPoke.attack} max="100"></progress>
                     </div>
-            
+
                     <div className="card_load_extreme_childre">
                         <div className="container-sub-info">
                             <h4 className="div-info-poke">Defensa</h4><p className="div-value-poke">{detailsPoke.defense}</p>
                         </div>
                         <progress className="amount-progress" value={detailsPoke.defense} max="100"></progress>
                     </div>
-            
+
                     <div className="card_load_extreme_childre">
                         <div className="container-sub-info">
                             <h4 className="div-info-poke">Velocidad</h4><p className="div-value-poke">{detailsPoke.speed}</p>
                         </div>
                         <progress className="amount-progress" value={detailsPoke.speed} max="100"></progress>
                     </div>
-            
-            
+
+
                     <div>
                         <div className="container-sub-info">
                             <div className="container-sub-info">
                                 <h4 className="div-info-poke">Altura:&nbsp;&nbsp;</h4><p className="div-value-poke">{detailsPoke.height}</p>
                             </div>
-            
+
                             <div className="container-sub-info">
                                 <h4 className="div-info-poke">Peso:&nbsp;&nbsp;</h4><p className="div-value-poke">{detailsPoke.weight}</p>
                             </div>
                         </div>
                     </div>
-            
+
                     <div className="container-sub-info">
                         <h4 className="div-info-poke">Tipo:&nbsp;&nbsp;</h4>
                         {detailsPoke.types?.map((e, i) => {
@@ -74,7 +87,7 @@ function Details (props){
                             )
                         })}
                     </div>
-            
+
                 </div>
             </div>
             <div className="div_btn_go_home">
@@ -84,7 +97,7 @@ function Details (props){
                         <span>Volver</span>
                     </button>
                 </Link>
-            </div>  
+            </div>
         </div>
     )
 }

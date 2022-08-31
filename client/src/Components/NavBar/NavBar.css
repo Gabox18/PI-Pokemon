@@ -6,7 +6,6 @@
   background-color: #343A40;
   margin-bottom: 30px;
   width: 100%;
-  border-radius: 3px;
   position: fixed;/*se posiciona en base al navegador y no se pierde su posicion al hacer scroll*/
   z-index: 1;/*todos los elementos posicionados quedan atras de este*/
   

@@ -1,5 +1,5 @@
 import {GET_ALL_POKES, GET_TYPES,FILTER_TYPES,FILTER_DB,ORDER_POKES_BY
-  ,CREATE_POKE,POKE_DETAILS,CLEAR_DETAILS,SEARCH_BY_NAME} from './actions.js'
+  ,CREATE_POKE,POKE_DETAILS,CLEAR_DETAILS,SEARCH_BY_NAME,CLEAR_ALL_POKES} from './actions.js'
   
 import ordering from '../Funciones_js/Ordenamiento.js'
 
@@ -71,6 +71,12 @@ const initialState = {
       case CREATE_POKE :
         return{
           ...state
+        }
+
+      case CLEAR_ALL_POKES :
+        return{
+          ...state,
+          PokesCopy: []
         }
 
       default:
