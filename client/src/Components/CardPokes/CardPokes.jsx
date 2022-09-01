@@ -16,7 +16,9 @@ function CardPokes(props){
                     <p className="description">
                         {props.types?.toString().split(',').join(' / ')}
                     </p>
-                    <img src={!props.img2?img_aux:props.img2} alt="cover" width='280px' height='250px'/>   
+                    <img src={!props.img2
+                        ? img_aux
+                        : props.img2} alt="cover" width='280px' height='250px'/>   
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {getTypes,getAllPokes,createPoke} from "../../Redux/actions.js"
+import {getTypes,createPoke,clearCreatePoke,clearAllPokes,clearTypes} from "../../Redux/actions.js"
 import validate from "../../Funciones_js/Validacion.js";
-import ViewCreate from "./ViewCreate.jsx";
+//import ViewCreate from "./ViewCreate.jsx";
 import tituloCreate from "../../Img/título-Create.png"
 import './create.css'
  
@@ -11,13 +11,19 @@ function CreateGame(props){
     
     const dispatch = useDispatch();
     const types = useSelector(state=>state.AllTypes)
+    const createDB = useSelector(state=>state.pokeCreated)
+    
     useEffect(()=>{
+        if(createDB.name)alert(`Pokemon ${createDB.name} creado`)
+        if(createDB.message)alert(createDB.message)
+        dispatch(clearCreatePoke())
         dispatch(getTypes())
         return()=>{
-            dispatch(getAllPokes())
+            dispatch(clearAllPokes())
+            dispatch(clearTypes())  
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+     
+    },[createDB.message, createDB.name, dispatch])
 //-----------------------------------------estados locales---------------------------------------------
     const [form, setForm] = useState({
         name: "",
@@ -31,7 +37,7 @@ function CreateGame(props){
         background_image:""
     });
 
-    let [renderDetails,setRenderDetails] = useState(false) //la utilizo para hacer un renderizado condicional del componente <Detail/>
+    //let [renderDetails,setRenderDetails] = useState(false) //la utilizo para hacer un renderizado condicional del componente <Detail/>
 
  //-----------------------------------funciones handles-----------------------------------------------------
     const handleInputChange = function(e) {
@@ -56,17 +62,29 @@ function CreateGame(props){
  
     const handleSubmit = function(e) {
        e.preventDefault();
+       dispatch(clearCreatePoke())
        let error = validate(form)
        if(Object.keys(error).length === 0){
-        setRenderDetails(true)
+        //setRenderDetails(true)
         dispatch(createPoke(form));
+        setForm({
+            name: "",
+            hp:0,
+            attack:0,
+            defense:0,
+            speed:0,
+            height:0,
+            weight:0,
+            types:[],
+            background_image:""
+        })
        } else {
         alert('Completa los campos requeridos')
        } 
        
     }
     return(
-        renderDetails === false? 
+        //renderDetails === false? 
             <div className="div_create">
 
                 <div className="nav_comp_create">
@@ -163,18 +181,18 @@ function CreateGame(props){
                 </form>
             </div>
 
-        :<ViewCreate name={form.name}
-        background_image={form.background_image} 
-        types={form.types} 
-        defense={form.defense}
-        hp={form.hp}
-        attack = {form.attack}
-        speed= {form.speed}
-        height= {form.height}
-        weight= {form.weight}
-        setRenderDetails={setRenderDetails}//paso funcion que modifica el estado local del renderizado condicional
-        setForm={setForm}//paso la funcion que modifica el estado local del formulario para limpiarlo en el desmontado
-        />
+        // :<ViewCreate name={form.name}
+        // background_image={form.background_image} 
+        // types={form.types} 
+        // defense={form.defense}
+        // hp={form.hp}
+        // attack = {form.attack}
+        // speed= {form.speed}
+        // height= {form.height}
+        // weight= {form.weight}
+        // setRenderDetails={setRenderDetails}//paso funcion que modifica el estado local del renderizado condicional
+        // setForm={setForm}//paso la funcion que modifica el estado local del formulario para limpiarlo en el desmontado
+        // />
     )
 }
 

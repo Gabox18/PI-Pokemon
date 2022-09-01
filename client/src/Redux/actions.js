@@ -10,7 +10,8 @@ export const POKE_DETAILS = 'POKE_DETAILS'
 export const CLEAR_DETAILS = 'CLEAR_DETAILS'
 export const SEARCH_BY_NAME ='SEARCH_BY_NAME'
 export const CLEAR_ALL_POKES = 'CLEAR_ALL_POKES'
-
+export const CLEAR_CREATE_POKE = 'CLEAR_CREATE_POKE'
+export const CLEAR_TYPES = 'CLEAR_TYPES'
 
 export const getAllPokes = () => {
     return async function (dispatch) {
@@ -65,7 +66,7 @@ export const getAllPokes = () => {
       return dispatch({
         type: CREATE_POKE,
         payload: response.data
-      })
+      }) 
     }
   }
 
@@ -93,5 +94,17 @@ export const getAllPokes = () => {
   export const clearAllPokes = () =>{
     return{
       type : CLEAR_ALL_POKES,
+    }
+  }
+
+  export const clearCreatePoke = () =>{
+    return{
+      type : CLEAR_CREATE_POKE
+    }
+  }
+
+  export const clearTypes = () =>{
+    return{
+      type : CLEAR_TYPES
     }
   }
