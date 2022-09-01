@@ -66,7 +66,7 @@ function CreateGame(props){
        let error = validate(form)
        if(Object.keys(error).length === 0){
         //setRenderDetails(true)
-        dispatch(createPoke(form));
+        dispatch(createPoke({...form,name:form.name.toLowerCase()}));
         setForm({
             name: "",
             hp:0,

@@ -47,7 +47,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case FILTER_TYPES:
-      console.log(auxAllPokes);
+      //console.log(auxAllPokes);
       return {
         ...state,
         Pokes:
@@ -70,6 +70,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case SEARCH_BY_NAME:
+      //console.log(action.payload)
       return {
         ...state,
         Pokes: action.payload,

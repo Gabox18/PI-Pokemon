@@ -6,6 +6,7 @@ import CardPokes from '../CardPokes/CardPokes.jsx'
 import Paginado from "../paginado/paginado.jsx"
 import Navbar from "../NavBar/NavBar.jsx"
 import SubNavbar from "../SubNavbar/SubNavbar.jsx"
+import sinResultado from '../../Img/img_sin_resultado.png'
 import Loader from "../Loader/Loader.jsx"
 import Footer from "../Footer/Footer.jsx"
 import './Home.css'
@@ -48,14 +49,17 @@ function Home(props) {
                 ?<div>
                     <SubNavbar paginado={paginado} />
                     <div className="div_Home_container">
-                        {cartasActuales?.map((e) => {
+                        {cartasActuales.length? cartasActuales?.map((e) => {
                             return (
                                 <div key={e.id} className='card_home'>
                                     <Link to={`home/Pokemon/${e.id}`} >
                                         <CardPokes name={e.name} img={e.background_image} img2={e.background_image_2} types={e.types?.map(t => t)} />
                                     </Link>
                                 </div>)
-                        })}
+                        })
+                        :(<div className="sin_resultado">
+                            <img src={sinResultado} alt="Sin Resultado" width={'450px'}></img>
+                        </div>)}
                     </div>
                 </div>
                 : <div className="div_loader">

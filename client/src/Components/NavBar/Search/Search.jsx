@@ -9,7 +9,7 @@ function Search (props){
 
     const handleInputChange = (e)=>{
         // console.log(e.target.value)
-        setName(e.target.value)
+        setName(e.target.value.toLowerCase())
     }
 
     const handleSubmit =(e)=> {

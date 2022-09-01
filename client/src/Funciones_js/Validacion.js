@@ -1,8 +1,10 @@
 
 export default function validate(input) {
     let error ={}
+    const onlyLetter = new RegExp('^[A-Z]+$', 'i');
     if (!input.name) error.name = "Nombre requerido"
     else if(input.name.length>15) error.name = "Maximo 15 Caracteres"
+    else if(!onlyLetter.test(input.name)) error.name = "Solo Letras"
     
     if(input.hp<0 || input.hp>100) error.hp = "Vida entre 0 y 100"
 
@@ -18,7 +20,7 @@ export default function validate(input) {
 
     if(input.weight<0 || input.weight>100) error.weight = "Peso entre 0 y 100"
 
-    if(!input.types.length) error.types = "selecciona 1 o mas Tipos"
+    if(!input.types.length) error.types = "selecciona 1 Tipo"
 
     if(input.types.length>2) error.types = "Maximo 2 tipos"
     return error

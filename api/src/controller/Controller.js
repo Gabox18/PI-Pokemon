@@ -26,8 +26,9 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
     return AllPokemon
      //return [...pokemonDB,...data]
   } catch (error) {
-    console.log(error,'erro del get api')
-    return [{ 
+    //console.log(error,'erro del get api')
+    return [{
+      id : -1, 
       name: 'Error Recarga',
       background_image: 'https://c.tenor.com/lc0bFgqDj4gAAAAi/pikachu-triste.gif',
       types: ['ERROR EN RED'],
@@ -87,6 +88,15 @@ const getByName = async (name)=>{ //busca por nombre en BD y Api
   types: searchDB.types?.map(e=>e.name)}]
   //----------------------------------------------------------
   let searchApi = await getDetail(name) 
+  console.log(searchApi,'-->server Name')
+  if(searchApi === 'Pokemon No Encontrado'){
+    return [{
+      id : -1, 
+      name: 'No Encontrado',
+      background_image: 'https://c.tenor.com/lc0bFgqDj4gAAAAi/pikachu-triste.gif',
+      types: ['Intenta otra Busqueda'],
+  }]
+  }
   return [{...searchApi,
     types: searchApi.types?.map(e=>e.name)}]
 }

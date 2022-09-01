@@ -12,7 +12,6 @@ const CreateTypesDB = async (arrTypes) => {//crea los tipos en BD
 
 const createPokemonDB = async (name,hp,attack,defense,speed,height,weight,background_image,types)=>{////crea los Pokemons en BD
   try {
-    
     let createPokemon = await Pokemon.create({
       name,
       hp,
