@@ -1,6 +1,7 @@
 const axios = require('axios');
 const {CreateTypesDB,searchPokeDB,getAllPokeDB} = require('./ControllerDB.js')
 //const URL_API_POKEMON = 'https://pokeapi.co/api/v2/pokemon?limit=40';
+const { Pokemon , Types } = require('../db.js')
 const {data ,dataType} = require('../../data.js')
 
 const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
@@ -36,13 +37,25 @@ const getAllPokemoms = async ()=>{//trae 40 pokemons de la Api
   }
 }
 
-const getAllTypes = async ()=>{//trae y cargas los tipos en BD
-  let response = await axios.get(`https://pokeapi.co/api/v2/type`);
-  let typesApi = response.data.results.map((genre) => {
-    return genre.name;
-    });
-  const typesDb = await CreateTypesDB(typesApi);//crea y llama los types desde la BD
-  return typesDb; 
+const getAllTypes = async () => {
+  //trae y cargas los tipos en BD
+  let alltypes = await Types.findAll();
+  if (alltypes.length !== 0) {
+    return alltypes.map(e=>e.name)
+  } else {
+    try {
+      let response = await axios.get(`https://pokeapi.co/api/v2/type`);
+      let typesApi = response.data.results.map((genre) => {
+        return genre.name;
+      });
+      const typesDb = await CreateTypesDB(typesApi); //crea y llama los types desde la BD
+      return typesDb;
+    } catch (error) {
+      return error
+    }
+    
+  }
+
   //return dataType
 };
 

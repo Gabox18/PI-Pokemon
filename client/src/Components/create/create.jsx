@@ -34,7 +34,6 @@ function CreateGame(props){
         height:0,
         weight:0,
         types:[],
-        background_image:""
     });
 
     //let [renderDetails,setRenderDetails] = useState(false) //la utilizo para hacer un renderizado condicional del componente <Detail/>
@@ -66,7 +65,9 @@ function CreateGame(props){
        let error = validate(form)
        if(Object.keys(error).length === 0){
         //setRenderDetails(true)
-        dispatch(createPoke({...form,name:form.name.toLowerCase()}));
+        dispatch(createPoke({
+            ...form,
+            name:form.name.toLowerCase()}));
         setForm({
             name: "",
             hp:0,
@@ -76,7 +77,6 @@ function CreateGame(props){
             height:0,
             weight:0,
             types:[],
-            background_image:""
         })
        } else {
         alert('Completa los campos requeridos')

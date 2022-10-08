@@ -1,6 +1,6 @@
 import React from "react";
+import img_aux from '../../Img/default_back.png'
 import './CardPokes.css'
-let img_aux = 'https://pm1.narvii.com/6338/ca7ea6ac3d3d733e024031a3b5d79394ce6cd7f9_hq.jpg'
 
 function CardPokes(props){
   return (
@@ -18,7 +18,7 @@ function CardPokes(props){
                     </p>
                     <img src={!props.img2
                         ? img_aux
-                        : props.img2} alt="cover" width='280px' height='250px'/>   
+                        : props.img2} alt="cover" width='250px' height='210px'/>   
                 </div>
             </div>
         </div>

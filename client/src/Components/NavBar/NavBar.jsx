@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getAllPokes,clearAllPokes } from "../../Redux/actions";
+import { getAllPokes,clearAllPokes,clearTypes } from "../../Redux/actions";
 import logo from "../../Img/Pokemon_logo.png"
 import Search from "./Search/Search";
 import {Link} from 'react-router-dom'
@@ -10,7 +10,8 @@ function Navbar (props){
     const dispatch = useDispatch()
 
     function onClickChange(){
-        dispatch(getAllPokes())
+        //dispatch(getAllPokes())
+        dispatch(clearTypes())
         dispatch(clearAllPokes())
     }
 

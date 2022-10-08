@@ -6,7 +6,7 @@ import "./LandingPage.css"
 function LandingPage (props){
     return(
         <div className="div_landing">
-            <h1>Henry Pokemon</h1>
+            <h1>Poke APP</h1>
             <div className="div_button_landing">
                 <Link to={'/home'}><button className="btn">Go To Pokemons</button></Link>
             </div>
