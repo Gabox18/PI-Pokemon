@@ -11,7 +11,7 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 
-axios.defaults.baseURL = process.env.URL_SERVER_API || 'http://localhost:3001';
+axios.defaults.baseURL = 'https://serverpokemon.onrender.com' || 'http://localhost:3001';
 
 console.log(process.env.URL_SERVER_API)
 ReactDOM.render(
